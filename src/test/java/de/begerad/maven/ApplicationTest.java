@@ -1,16 +1,27 @@
 package de.begerad.maven;
 
-import junit.framework.Assert;
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class ApplicationTest extends TestCase {
-    Calculator cal = new Calculator();
+import org.junit.Before;
+import org.junit.Test;
 
-    public void testAdd() {
-        Assert.assertEquals(cal.add(10, 20), 30);
+public class ApplicationTest {
+
+    private Calculator calculator;
+
+    @Before
+    public void setUp() throws Exception {
+        calculator = new Calculator();
     }
 
+    @Test
     public void testMultiply() {
-        Assert.assertEquals(cal.mul(10, 20), 200);
+        assertEquals( "Regular multiplication should work", calculator.mul(4,5), 20);
+    }
+
+    @Test
+    public void testMultiplyWithZero() {
+        assertEquals("Multiple with zero should be zero",0,  calculator.mul(0,5));
+        assertEquals("Multiple with zero should be zero", 0, calculator.mul(5,0));
     }
 }
