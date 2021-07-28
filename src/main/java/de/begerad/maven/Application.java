@@ -1,4 +1,4 @@
-package program.sample.controller;
+package de.begerad.maven;
 
 import java.util.*;
 
